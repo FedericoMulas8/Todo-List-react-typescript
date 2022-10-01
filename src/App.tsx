@@ -3,9 +3,5 @@ import { Todo } from "./Todo";
 import "./Style/style.css";
 
 export default function App(): JSX.Element {
-  return (
-    <div>
-      <Todo />
-    </div>
-  );
+  return <Todo />;
 }

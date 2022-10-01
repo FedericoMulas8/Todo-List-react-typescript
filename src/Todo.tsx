@@ -13,7 +13,7 @@ export function Todo(): JSX.Element {
   } = useTodo();
 
   return (
-    <div>
+    <div className="container">
       <div className="instructions">
         <p>
           Instructions: Insert a task to see the 'Active Tasks' list - Complete
