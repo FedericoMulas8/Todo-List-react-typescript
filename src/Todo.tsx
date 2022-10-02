@@ -1,3 +1,5 @@
+import { Active } from "./Active";
+import { Completed } from "./Completed";
 import { useTodo } from "./useTodo";
 
 export function Todo(): JSX.Element {
@@ -27,45 +29,12 @@ export function Todo(): JSX.Element {
 
         <div className="todo">
           {list.length > 0 && (
-            <div className="active">
-              <ul>
-                {list.map((elem: string, i: number) => {
-                  return (
-                    <li key={i}>
-                      <div className="box">
-                        <button id="remove" onClick={() => handleRemove(i)}>
-                          <i className="gg-remove"></i>
-                        </button>
-                      </div>
-                      <p>{elem}</p>
-                      <div className="box">
-                        <button id="done" onClick={() => handleCompleted(i)}>
-                          <i className="gg-check-o"></i>
-                        </button>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <Active
+              list={list}
+              handleRemove={handleRemove}
+              handleCompleted={handleCompleted}
+            />
           )}
-
-          {/* {completed.length > 0 && (
-            <div className="completed">
-              <ul>
-                {completed.map((complete: string[], i: number) => {
-                  return (
-                    <li key={i}>
-                      <button onClick={() => handleRemoveCompleted(i)}>
-                        -
-                      </button>
-                      {complete}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          )} */}
         </div>
 
         <div className="selection">
@@ -85,6 +54,8 @@ export function Todo(): JSX.Element {
     </div>
   );
 }
+
+// {completed.length > 0 && <Completed completed={completed} />}
 
 /*----------------------------------------------------------------
 <div className="instructions">
