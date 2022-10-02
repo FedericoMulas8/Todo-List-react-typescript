@@ -1,6 +1,8 @@
 /** Light Mode*/
 /** Dark Mode */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import url("https://css.gg/check-o.css");
+@import url("https://css.gg/remove.css");
 * {
   padding: 0;
   margin: 0;
@@ -18,15 +20,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-.box button {
-  background-color: transparent;
-  color: white;
-  border: none;
-  font-size: 1.2rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
 }
 
 .container {
@@ -69,6 +62,7 @@
   border: none;
   height: 100%;
   width: 15%;
+  font-size: 1rem;
 }
 .container .content .todo {
   width: 100%;
@@ -76,7 +70,7 @@
   background-color: hsl(235deg, 24%, 19%);
   color: white;
   display: flex;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 .container .content .todo ul {
@@ -86,7 +80,8 @@
   flex-direction: column;
 }
 .container .content .todo ul li {
-  width: 500px;
+  min-width: 500px;
+  max-width: 500px;
   min-height: 15%;
   display: flex;
   align-items: center;
@@ -99,11 +94,13 @@
   border: none;
 }
 .container .content .todo ul li p {
-  width: 80%;
+  width: 81%;
+  overflow-x: auto;
 }
 .container .content .todo ul li button {
-  color: white;
+  color: gray;
   border-radius: 10px;
+  border: none;
   background-color: transparent;
 }
 .container .content .selection {
@@ -113,7 +110,8 @@
   border-top: 1px solid lightgray;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0px 10px;
   color: white;
   font-size: 0.8rem;
   border-bottom-left-radius: 10px;
@@ -123,4 +121,53 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+/* Remove & Done icons*/
+.gg-remove {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid;
+  border-radius: 22px;
+}
+
+.gg-remove::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 5px;
+  top: 8px;
+  left: 4px;
+}
+
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: hsl(234deg, 39%, 85%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }/*# sourceMappingURL=style.css.map */

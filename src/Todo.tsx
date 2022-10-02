@@ -34,13 +34,13 @@ export function Todo(): JSX.Element {
                     <li key={i}>
                       <div className="box">
                         <button id="remove" onClick={() => handleRemove(i)}>
-                          -
+                          <i className="gg-remove"></i>
                         </button>
                       </div>
                       <p>{elem}</p>
                       <div className="box">
                         <button id="done" onClick={() => handleCompleted(i)}>
-                          ✓
+                          <i className="gg-check-o"></i>
                         </button>
                       </div>
                     </li>
