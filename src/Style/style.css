@@ -60,11 +60,15 @@
   border: none;
   color: white;
   width: 80%;
+  padding: 8px;
+  font-size: 1rem;
 }
 .container .content .inputs button {
   background-color: transparent;
   color: white;
   border: none;
+  height: 100%;
+  width: 15%;
 }
 .container .content .todo {
   width: 100%;

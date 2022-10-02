@@ -67,12 +67,16 @@ $grayblue: hsl(234, 39%, 85%);
         border: none;
         color: white;
         width: 80%;
+        padding: 8px;
+        font-size: 1rem;
       }
 
       button {
         background-color: transparent;
         color: white;
         border: none;
+        height: 100%;
+        width: 15%;
       }
     }
 
