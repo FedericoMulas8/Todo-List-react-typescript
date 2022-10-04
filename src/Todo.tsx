@@ -14,6 +14,7 @@ export function Todo(): JSX.Element {
     handleCompleted,
     handleRemoveCompleted,
     handleSelection,
+    handleAllSelection,
   } = useTodo();
 
   return (
@@ -44,23 +45,23 @@ export function Todo(): JSX.Element {
             <p>{list.length} Items Left</p>
           </div>
           <div className="select">
-            <p data-value={selection.all} id="all" onClick={handleSelection}>
+            <button value={selection.all} name="all" onClick={handleSelection}>
               All
-            </p>
-            <p
-              data-value={selection.active}
-              id="active"
+            </button>
+            <button
+              value={selection.active}
+              name="active"
               onClick={handleSelection}
             >
               Active
-            </p>
-            <p
-              data-value={selection.complete}
-              id="complete"
+            </button>
+            <button
+              value={selection.complete}
+              name="complete"
               onClick={handleSelection}
             >
               Completed
-            </p>
+            </button>
           </div>
           <div className="reset">
             <p>Clear Completed</p>

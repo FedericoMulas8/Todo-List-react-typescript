@@ -11,6 +11,7 @@ type Todo = {
   handleCompleted(i: number): void;
   handleRemoveCompleted(i: number): void;
   handleSelection(target: any): void;
+  handleAllSelection(): void;
 };
 
 type Event = {
@@ -18,11 +19,9 @@ type Event = {
   value: string;
 };
 
-type Selection = {
-  all: boolean;
-  active: boolean;
-  complete: boolean;
-};
+interface Selection {
+  [string: string]: boolean;
+}
 
 export function useTodo(): Todo {
   const [todo, setTodo] = useState<string>(""); // a state to store user input
@@ -34,6 +33,8 @@ export function useTodo(): Todo {
     active: false,
     complete: false,
   });
+
+  const [all, setAll] = useState(true); // state check for all button
 
   function handleChange({ target }: Event) {
     setTodo(target.value);
@@ -70,16 +71,21 @@ export function useTodo(): Todo {
     });
   }
 
-  function handleSelection({ target }: any) {
-    let id: string = target.id;
-    let value: boolean = target.dataset.value;
-    setSelection((prev) => {
+  function handleAllSelection() {
+    setAll(!all);
+    console.log(selection.all);
+  }
+
+  function handleSelection(event: React.MouseEvent<HTMLButtonElement>): void {
+    const target = event.target as HTMLButtonElement;
+    console.log(target);
+    let name: string = target.name;
+    setSelection((prev: Selection) => {
       return {
-        ...selection,
-        [id]: !value,
+        ...prev,
+        [name]: !prev[name],
       };
     });
-    console.log(target, selection);
   }
 
   return {
@@ -93,5 +99,24 @@ export function useTodo(): Todo {
     handleCompleted,
     handleRemoveCompleted,
     handleSelection,
+    handleAllSelection,
   };
 }
+
+/*
+function handleSelection(
+    event: React.MouseEventHandler<HTMLButtonElement> | undefined
+  ): void {
+
+    console.log(event.target);
+    let name: string = event.target.name;
+    const value: string = event.target.value;
+    // console.log(selection, name, value);
+    setSelection((prev: Selection) => {
+      return {
+        ...selection,
+        [name]: !selection[name],
+      };
+    });
+  }
+  */

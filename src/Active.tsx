@@ -1,8 +1,4 @@
-import { useTodo } from "./useTodo";
-
 export function Active(props: any) {
-  //   const { handleRemove, handleCompleted } = useTodo();
-
   return (
     <div className="active">
       <ul>
