@@ -14,7 +14,6 @@ export function Todo(): JSX.Element {
     handleCompleted,
     handleRemoveCompleted,
     handleSelection,
-    handleAllSelection,
   } = useTodo();
 
   return (

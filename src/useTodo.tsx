@@ -11,7 +11,6 @@ type Todo = {
   handleCompleted(i: number): void;
   handleRemoveCompleted(i: number): void;
   handleSelection(target: any): void;
-  handleAllSelection(): void;
 };
 
 type Event = {
@@ -22,6 +21,10 @@ type Event = {
 interface Selection {
   [string: string]: boolean;
 }
+
+type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};
 
 export function useTodo(): Todo {
   const [todo, setTodo] = useState<string>(""); // a state to store user input
@@ -34,10 +37,8 @@ export function useTodo(): Todo {
     complete: false,
   });
 
-  const [all, setAll] = useState(true); // state check for all button
-
-  function handleChange({ target }: Event) {
-    setTodo(target.value);
+  function handleChange(event: HTMLElementEvent<HTMLInputElement>) {
+    setTodo(event.target.value);
   }
 
   function handleSubmit(): void {
@@ -71,15 +72,8 @@ export function useTodo(): Todo {
     });
   }
 
-  function handleAllSelection() {
-    setAll(!all);
-    console.log(selection.all);
-  }
-
-  function handleSelection(event: React.MouseEvent<HTMLButtonElement>): void {
-    const target = event.target as HTMLButtonElement;
-    console.log(target);
-    let name: string = target.name;
+  function handleSelection(event: HTMLElementEvent<HTMLButtonElement>): void {
+    let name: string = event.target.name;
     setSelection((prev: Selection) => {
       return {
         ...prev,
@@ -99,7 +93,6 @@ export function useTodo(): Todo {
     handleCompleted,
     handleRemoveCompleted,
     handleSelection,
-    handleAllSelection,
   };
 }
 
