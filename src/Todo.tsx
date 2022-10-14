@@ -1,7 +1,7 @@
 import { Active } from "./Active";
-import { All } from "./All";
 import { Completed } from "./Completed";
 import { useTodo } from "./useTodo";
+import moon from "./images/icon-moon.svg";
 
 export function Todo(): JSX.Element {
   const {
@@ -14,13 +14,18 @@ export function Todo(): JSX.Element {
     handleRemove,
     handleCompleted,
     handleRemoveCompleted,
+    resetCompleted,
     handleSelection,
-    // setCompleted,
   } = useTodo();
 
   return (
     <div className="container">
+      <div className="header">
+        <h1>TODO</h1>
+        <img src={moon}>icon</img>
+      </div>
       <div className="content">
+        {/* input */}
         <div className="inputs">
           <div className="box"></div>
           <input
@@ -31,19 +36,8 @@ export function Todo(): JSX.Element {
           <button onClick={handleSubmit}>Push</button>
         </div>
 
+        {/* Tasks */}
         <div className="todo">
-          {/* {selection.all && <All list={list} completed={completed} />} */}
-          {/* <Active
-            list={list}
-            handleRemove={handleRemove}
-            handleCompleted={handleCompleted}
-          />
-
-          <Completed
-            completed={completed}
-            handleRemoveCompleted={handleRemoveCompleted}
-          /> */}
-
           {selection.all && (
             <>
               <Active
@@ -72,9 +66,10 @@ export function Todo(): JSX.Element {
           )}
         </div>
 
+        {/* bottom container for buttons and infos */}
         <div className="selection">
           <div className="numberleft">
-            <p>{list.length} Items Left</p>
+            <p>{list.length} Active Tasks</p>
           </div>
           <div className="select">
             <button value={selection.all} name="all" onClick={handleSelection}>
@@ -96,22 +91,10 @@ export function Todo(): JSX.Element {
             </button>
           </div>
           <div className="reset">
-            <p>Clear Completed</p>
+            <p onClick={resetCompleted}>Clear Completed</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-// {completed.length > 0 && <Completed completed={completed} />}
-
-/*----------------------------------------------------------------
-<div className="instructions">
-        <p>
-          Instructions: Insert a task to see the 'Active Tasks' list - Complete
-          a task by pressing 'Done' to see the 'Completed Tasks' list. You can
-          remove tasks by pressing '-' button
-        </p>
-      </div>
-*/

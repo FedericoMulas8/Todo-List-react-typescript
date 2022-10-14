@@ -11,6 +11,11 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+button,
+.reset {
+  cursor: pointer;
+}
+
 .box {
   width: 20px;
   height: 20px;
@@ -23,21 +28,37 @@
   align-items: center;
 }
 
-.container {
+#root {
   width: 100vw;
   height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
   background-image: url("../images/bg-desktop-dark.jpg");
   background-repeat: no-repeat;
   background-color: hsl(235deg, 21%, 11%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.container .header {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .header h1 {
+  color: white;
 }
 .container .content {
   width: 500px;
   height: 400px;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .container .content .inputs {
   width: 100%;
@@ -75,6 +96,19 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+.container .content .todo .active .notasks,
+.container .content .todo .completed .notasks {
+  opacity: 0.6;
+}
+.container .content .todo .active h4,
+.container .content .todo .completed h4 {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.container .content .todo .active p,
+.container .content .todo .completed p {
+  padding: 20px 10px;
+}
 .container .content .todo ul {
   width: 100%;
   height: 100%;
@@ -82,8 +116,8 @@
   flex-direction: column;
 }
 .container .content .todo ul li {
-  min-width: 500px;
-  max-width: 500px;
+  min-width: 100%;
+  max-width: 100%;
   min-height: 50px;
   display: flex;
   align-items: center;
@@ -172,4 +206,24 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media screen and (max-width: 425px) {
+  .container .content {
+    width: 88%;
+  }
+  .container .content .inputs button {
+    font-size: 14px;
+  }
+  .container .content .selection {
+    padding: 0 5px;
+  }
+  .container .content .selection .select {
+    gap: 5px;
+    padding-right: 10px;
+  }
+  .container .content .selection .numberleft p,
+.container .content .selection .reset p {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=style.css.map */

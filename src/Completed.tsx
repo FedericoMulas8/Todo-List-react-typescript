@@ -1,7 +1,12 @@
 export function Completed(props: any) {
   return (
     <div className="completed">
-      <p>Completed</p>
+      <h4>
+        {props.completed.length > 1 ? `Completed Tasks:` : `Completed Task:`}
+      </h4>
+      {props.completed.length < 1 && (
+        <p className="notasks">No completed tasks yet</p>
+      )}
       <ul>
         {props.completed.map((complete: string[], i: number) => {
           return (
