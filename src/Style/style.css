@@ -16,6 +16,15 @@ button,
   cursor: pointer;
 }
 
+button,
+h1,
+h4,
+p,
+input,
+.reset {
+  color: var(--buttonColor);
+}
+
 .box {
   width: 20px;
   height: 20px;
@@ -36,9 +45,9 @@ button,
 .container {
   width: 100%;
   height: 100%;
-  background-image: url("../images/bg-desktop-dark.jpg");
+  background-image: var(--backgroundImg);
   background-repeat: no-repeat;
-  background-color: hsl(235deg, 21%, 11%);
+  background-color: var(--backgroundColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,7 +60,8 @@ button,
   justify-content: space-between;
 }
 .container .header h1 {
-  color: white;
+  color: var(--inverted);
+  letter-spacing: 10px;
 }
 .container .content {
   width: 500px;
@@ -60,27 +70,27 @@ button,
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.container .content .inputs,
+.container .content .todo,
+.container .content .selection {
+  background-color: var(--contentBackgroundColor);
+}
 .container .content .inputs {
   width: 100%;
   height: 10%;
-  background-color: hsl(235deg, 24%, 19%);
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 .container .content .inputs input {
   background-color: transparent;
   border: none;
-  color: white;
   width: 80%;
   padding: 8px;
   font-size: 1rem;
 }
 .container .content .inputs button {
   background-color: transparent;
-  color: white;
   border: none;
   height: 100%;
   width: 15%;
@@ -89,7 +99,6 @@ button,
 .container .content .todo {
   width: 100%;
   height: 80%;
-  background-color: hsl(235deg, 24%, 19%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -142,7 +151,6 @@ button,
 .container .content .selection {
   width: 100%;
   height: 10%;
-  background-color: hsl(235deg, 24%, 19%);
   border-top: 1px solid lightgray;
   display: flex;
   align-items: center;
@@ -150,13 +158,14 @@ button,
   padding: 0px 10px;
   color: white;
   font-size: 0.8rem;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 .container .content .selection .select {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+.container .content .selection .select button {
+  color: black;
 }
 
 /* Remove & Done icons*/
