@@ -13,11 +13,6 @@ type Todo = {
   handleSelection(target: any): void;
 };
 
-type Event = {
-  target: Event; // any?
-  value: string;
-};
-
 interface Selection {
   [string: string]: boolean;
 }
@@ -57,9 +52,6 @@ export function useTodo(): Todo {
 
   function handleCompleted(i: number): void {
     const newCompleted = list.splice(i, 1);
-    // setList((prev) => {
-    //   return [...list];
-    // });
     setCompleted((prev) => {
       return [...completed, newCompleted];
     });
@@ -72,11 +64,25 @@ export function useTodo(): Todo {
     });
   }
 
+  // function handleSelection(event: HTMLElementEvent<HTMLButtonElement>): void {
+  //   console.log(selection);
+  //   let name: string = event.target.name;
+  //   setSelection((prev: Selection) => {
+  //     const notPrev: any = !prev;
+  //     return {
+  //       ...notPrev,
+  //       [name]: !prev[name],
+  //     };
+  //   });
+  // }
+
   function handleSelection(event: HTMLElementEvent<HTMLButtonElement>): void {
+    console.log(selection);
     let name: string = event.target.name;
     setSelection((prev: Selection) => {
+      const notPrev: {} = !prev;
       return {
-        ...prev,
+        ...notPrev,
         [name]: !prev[name],
       };
     });

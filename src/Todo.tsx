@@ -1,4 +1,5 @@
 import { Active } from "./Active";
+import { All } from "./All";
 import { Completed } from "./Completed";
 import { useTodo } from "./useTodo";
 
@@ -14,6 +15,7 @@ export function Todo(): JSX.Element {
     handleCompleted,
     handleRemoveCompleted,
     handleSelection,
+    // setCompleted,
   } = useTodo();
 
   return (
@@ -30,11 +32,42 @@ export function Todo(): JSX.Element {
         </div>
 
         <div className="todo">
-          {list.length > 0 && (
+          {/* {selection.all && <All list={list} completed={completed} />} */}
+          {/* <Active
+            list={list}
+            handleRemove={handleRemove}
+            handleCompleted={handleCompleted}
+          />
+
+          <Completed
+            completed={completed}
+            handleRemoveCompleted={handleRemoveCompleted}
+          /> */}
+
+          {selection.all && (
+            <>
+              <Active
+                list={list}
+                handleRemove={handleRemove}
+                handleCompleted={handleCompleted}
+              />
+              <Completed
+                completed={completed}
+                handleRemoveCompleted={handleRemoveCompleted}
+              />
+            </>
+          )}
+          {selection.active && (
             <Active
               list={list}
               handleRemove={handleRemove}
               handleCompleted={handleCompleted}
+            />
+          )}
+          {selection.complete > 0 && (
+            <Completed
+              completed={completed}
+              handleRemoveCompleted={handleRemoveCompleted}
             />
           )}
         </div>

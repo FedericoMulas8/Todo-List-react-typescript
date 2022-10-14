@@ -1,9 +1,10 @@
-export function Completed(props: any) {
+export function All(props: any) {
+  const all = props.list.concat(props.completed);
+
   return (
-    <div className="completed">
-      <p>Completed</p>
+    <div>
       <ul>
-        {props.completed.map((complete: string[], i: number) => {
+        {all.map((elem: string[], i: number) => {
           return (
             <li key={i}>
               <div className="box">
@@ -14,7 +15,7 @@ export function Completed(props: any) {
                   <i className="gg-remove"></i>
                 </button>
               </div>
-              <p>{complete}</p>
+              <p>{elem}</p>
             </li>
           );
         })}

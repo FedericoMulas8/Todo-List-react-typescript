@@ -1,6 +1,7 @@
 export function Active(props: any) {
   return (
     <div className="active">
+      <p>Active</p>
       <ul>
         {props.list.map((elem: string, i: number) => {
           return (
