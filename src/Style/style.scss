@@ -63,7 +63,7 @@ input,
   align-items: center;
 
   .header {
-    width: 500px;
+    width: 88%;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -71,6 +71,7 @@ input,
     h1 {
       color: var(--inverted);
       letter-spacing: 10px;
+      // text-shadow: -0.5px -1px white, 0.5px 1px white;
     }
   }
 

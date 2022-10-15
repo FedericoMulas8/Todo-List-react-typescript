@@ -14,9 +14,5 @@ export function DarkMode() {
     setTheme(newTheme);
   };
 
-  return (
-    <div className="darkswitch" data-theme={theme}>
-      <Todo theme={theme} switchTheme={switchTheme} />
-    </div>
-  );
+  return <Todo data-theme={theme} theme={theme} switchTheme={switchTheme} />;
 }
