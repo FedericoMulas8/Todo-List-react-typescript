@@ -1,7 +1,7 @@
 export function Active(props: any) {
   return (
     <div className="active">
-      <h4>{props.list.length > 1 ? `Active Tasks:` : `Active Task:`}</h4>
+      {/* <h4>{props.list.length > 1 ? `Active Tasks:` : `Active Task:`}</h4> */}
       {props.list.length < 1 && <p className="notasks">No active tasks</p>}
       <ul>
         {props.list.map((elem: string, i: number) => {

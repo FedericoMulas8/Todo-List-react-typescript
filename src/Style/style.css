@@ -36,6 +36,10 @@ input,
   align-items: center;
 }
 
+p.completedP {
+  text-decoration: line-through;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -53,7 +57,7 @@ input,
   align-items: center;
 }
 .container .header {
-  width: 88%;
+  width: 500px;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -133,9 +137,6 @@ input,
 }
 .container .content .todo ul li:first-child {
   padding-top: 5px;
-}
-.container .content .todo ul li:last-child {
-  border: none;
 }
 .container .content .todo ul li p {
   width: 81%;
@@ -217,6 +218,9 @@ input,
 }
 
 @media screen and (max-width: 425px) {
+  .container .header {
+    width: 88%;
+  }
   .container .content {
     width: 88%;
   }

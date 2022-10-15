@@ -22,9 +22,9 @@ export function Completed(props: any) {
 
   return (
     <div className="completed">
-      <h4>
+      {/* <h4>
         {props.completed.length > 1 ? `Completed Tasks:` : `Completed Task:`}
-      </h4>
+      </h4> */}
       {props.completed.length < 1 && (
         <p className="notasks">No completed tasks yet</p>
       )}
@@ -40,7 +40,7 @@ export function Completed(props: any) {
                   <i className="gg-remove"></i>
                 </button>
               </div>
-              <p>{complete}</p>
+              <p className="completedP">{complete}</p>
               <div className="box">{svgCompleted}</div>
             </li>
           );
