@@ -28,7 +28,6 @@ input,
 .box {
   width: 20px;
   height: 20px;
-  border: 1px solid gray;
   border-radius: 50%;
   margin: 0px 10px 0px 10px;
   display: flex;

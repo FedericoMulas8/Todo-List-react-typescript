@@ -25,6 +25,7 @@ type HTMLElementEvent<T extends HTMLElement> = Event & {
 export function useTodo(): Todo {
   const [todo, setTodo] = useState<string>(""); // a state to store user input
   const [list, setList] = useState<string[]>([]); // list of active tasks
+  // const [list, setList] = useState<string[]>([]); // list of active tasks
   const [completed, setCompleted] = useState<string[][]>([]); // list of completed tasks
 
   const [selection, setSelection] = useState<Selection>({
@@ -69,6 +70,15 @@ export function useTodo(): Todo {
     });
   }
 
+  // //handler to unflag a task as completed (send back to active)
+  // function handleUnflagCompleted(i: number): void {
+  //   const newTasks = completed.splice(i, 1);
+  //   console.log(newTasks);
+  //   setList((prev) => {
+  //     return [...list, newTasks];
+  //   });
+  // }
+
   //handler that remove all completed tasks
   function resetCompleted(): void {
     setCompleted([]);
@@ -101,21 +111,3 @@ export function useTodo(): Todo {
     handleSelection,
   };
 }
-
-/*
-function handleSelection(
-    event: React.MouseEventHandler<HTMLButtonElement> | undefined
-  ): void {
-
-    console.log(event.target);
-    let name: string = event.target.name;
-    const value: string = event.target.value;
-    // console.log(selection, name, value);
-    setSelection((prev: Selection) => {
-      return {
-        ...selection,
-        [name]: !selection[name],
-      };
-    });
-  }
-  */
